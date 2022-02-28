@@ -14,12 +14,12 @@ pipeline{
         sh 'mvn clean package'
       }
     }
-//stage('Deploying War file'){
-//  steps{
-//    sshagent(['tomcat_server']) {
-//      sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.95.111:/opt/apache-tomcat-9.0.58/webapps/'
-//    }
-//  }
-//}
+    stage('Deploying War file'){
+      steps{
+        sshagent(['tomcat_server']) {
+          sh 'scp -o StrictHostKeyChecking=no target/webapp.war ec2-user@172.31.95.111:/opt/apache-tomcat-9.0.58/webapps/'
+        }
+      }
+    }
   }
 }

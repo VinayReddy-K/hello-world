@@ -13,8 +13,8 @@ pipeline{
       steps{
         sh '''
           mvn clean package
-          cp /var/lib/jenkins/workspace/Hello/webapp/target/webapp.war .
-          cp /home/ec2-user/hello-world/Dockerfile /home/ec2-user
+          cp /var/lib/jenkins/workspace/imgpush/webapp/target/webapp.war .
+          cp /home/ec2-user/hello-world/Dockerfile .
         '''  
       }
     }

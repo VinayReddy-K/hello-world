@@ -14,6 +14,7 @@ pipeline{
         sh '''
           mvn clean package
           cp /var/lib/jenkins/workspace/jenkins-docker/webapp/target/webapp.war .
+          cp ./hello-world/Dockerfile .
         '''  
       }
     }

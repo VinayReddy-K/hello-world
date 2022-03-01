@@ -27,10 +27,10 @@ pipeline{
 //        }
 //      }
 //    }
-    stage('Build Docker Image'){
-      steps{
-        sh 'docker build . -t secondimg'
-      }
-    }
+//    stage('Build Docker Image'){
+//      steps{
+//        sh 'docker build . -t secondimg'
+//      }
+//    }
   }
 }

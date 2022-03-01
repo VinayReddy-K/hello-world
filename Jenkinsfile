@@ -12,13 +12,14 @@ pipeline{
     stage('Bulid stage'){
       steps{
         sh 'mvn clean package'
+        sh 'mv target/*.war target/mywebapp.war'
       }
     }
     stage('Deploying War file'){
       steps{
         sshagent(['tomcat_server']) {
           sh '''
-            scp -o StrictHostKeyChecking=no target/webapp.war ec2-user@172.31.95.111:/opt/apache-tomcat-9.0.58/webapps/
+            scp -o StrictHostKeyChecking=no target/mywebapp.war ec2-user@172.31.95.111:/opt/apache-tomcat-9.0.58/webapps/
             ssh ec2-user@172.31.95.111 /opt/tomcat-9.0.58/bin/shutdown.sh
             ssh ec2-user@172.31.95.111 /opt/tomcat-9.0.58/bin/startup.sh
           '''

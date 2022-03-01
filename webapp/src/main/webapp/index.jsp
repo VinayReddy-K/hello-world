@@ -9,7 +9,7 @@ div {text-align: center;}
 <body>
 
 <h1 style="color:blue;"> Hello, Welcome to Our DevOps Project  </h1>
-<h1 style="color:blue;"> Do not forget to Subscribe my channel and keep learning </h1>
+<h1 style="color:blue;"> Subscribe my channel and keep learning </h1>
 </body>
 </html>
 

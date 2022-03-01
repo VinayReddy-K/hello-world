@@ -12,6 +12,7 @@ pipeline{
     stage('Bulid stage'){
       steps{
         sh 'mvn clean package'
+        sh 'mv target/*.war /home/ec2-user'
       }
     }
 //    stage('Deploying War file'){
@@ -23,17 +24,9 @@ pipeline{
 //        }
 //      }
 //    }
-    stage('Bulid Docker image')
+    stage('Build Docker Image')
       steps{
-        sh 'docker build -t secondimg .'
-      }
-    }
-    stage('Push Docker image')
-      steps{
-        withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-          sh "docker login -u kachana -p $(dockerhubpwd)"
-          sh "docker push kachana/secondimg"
-        }
+        sh 'docker build . -t secondimg'
       }
     }
   }

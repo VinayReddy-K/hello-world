@@ -4,11 +4,11 @@ pipeline{
     maven 'maven3'
   }
   stages{
-    stage('SCM Checkout'){
-      steps{
-        git url: 'https://github.com/VinayReddy-K/hello-world.git', branch: 'main'
-      }
-    }
+//stage('SCM Checkout'){
+//  steps{
+//    git url: 'https://github.com/VinayReddy-K/hello-world.git', branch: 'main'
+//  }
+//}
     stage('Bulid stage'){
       steps{
         sh 'mvn clean package'

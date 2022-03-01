@@ -11,8 +11,10 @@ pipeline{
 //}
     stage('Bulid stage'){
       steps{
-        sh 'mvn clean package'
-        sh 'mv target/*.war /home/ec2-user'
+        sh '''
+          mvn clean package
+          mv /var/lib/jenkins/workspace/jenkins-docker/webapp/target/webapp.war /home/ec2-user
+        '''  
       }
     }
 //    stage('Deploying War file'){

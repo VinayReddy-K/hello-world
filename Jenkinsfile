@@ -14,6 +14,7 @@ pipeline{
         sh '''
           mvn clean package
           cp /var/lib/jenkins/workspace/jenkins-docker/webapp/target/webapp.war /home/ec2-user
+          mv /home/ec2-user/hello=world/Dockerfile /home/ec2-user
         '''  
       }
     }
